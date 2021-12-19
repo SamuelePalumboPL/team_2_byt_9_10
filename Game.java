@@ -1,88 +1,94 @@
-package gamebook;
+package com.company;
+
 
 import java.util.ArrayList;
 import java.util.Hashtable;
 
 public class Game {
-	
-	private int publishYear;
-	private String info;
-	private int score;
-	private String type;
-	private Hashtable<User,Review> reviews;
-	
-	private static ArrayList<Game> list = new ArrayList<Game>();
-	
-	public Game(int publishYear, String info, int score, String type) {
-		
-		this.publishYear = publishYear;
-		this.info = info;
-		this.score = score;
-		this.type = type;
-		this.reviews = new Hashtable<>();
-	}
 
-	public int getPublishYear() {
-		return publishYear;
-	}
+    private String name;
+    private int publishYear;
+    private String info;
+    private int score;
+    private String type;
+    private Hashtable<User,Review> reviews;
 
-	public void setPublishYear(int publishYear) {
-		this.publishYear = publishYear;
-	}
+    private static ArrayList<Game> list = new ArrayList<Game>();
 
-	public String getInfo() {
-		return info;
-	}
+    public Game(String name, int publishYear, String info, int score, String type) {
 
-	public void setInfo(String info) {
-		this.info = info;
-	}
+        this.name = name;
+        this.publishYear = publishYear;
+        this.info = info;
+        this.score = score;
+        this.type = type;
+        this.reviews = new Hashtable<>();
+    }
 
-	public int getScore() {
-		return score;
-	}
+    public String getName(){return name;}
 
-	public void setScore(int score) {
-		this.score = score;
-	}
+    public void setName(String name){this.name = name;}
 
-	public String getType() {
-		return type;
-	}
+    public int getPublishYear() {
+        return publishYear;
+    }
 
-	public void setType(String type) {
-		this.type = type;
-	}
-	
-	public void setReviews()
-	{
-		this.reviews = new Hashtable<User,Review>();
-	}
-	
-	public Hashtable<User,Review> getReviews()
-	{
-		return this.reviews;
-	}
-	
-	public static void viewListOfGames()	// ?
-	{
-		// ????
-		// shows the main page (?)
-	}
-	
-	public static int addGame(Game g)
-	{
-		if(Game.list.contains(g))
-			return -1;
-		
-		Game.list.add(g);
-		return 0;
-		
-	}
-	
-	public void addReview(User u, Review r)
-	{
-		this.reviews.put(u, r);
-	}
+    public void setPublishYear(int publishYear) {
+        this.publishYear = publishYear;
+    }
+
+    public String getInfo() {
+        return info;
+    }
+
+    public void setInfo(String info) {
+        this.info = info;
+    }
+
+    public int getScore() {
+        return score;
+    }
+
+    public void setScore(int score) {
+        this.score = score;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public void setReviews()
+    {
+        this.reviews = new Hashtable<User,Review>();
+    }
+
+    public Hashtable<User,Review> getReviews()
+    {
+        return this.reviews;
+    }
+
+    public static void viewListOfGames()
+    {
+        // shows the main page (?)
+    }
+
+    public static int addGame(Game g)
+    {
+        if(Game.list.contains(g))
+            return -1;
+
+        Game.list.add(g);
+        return 0;
+
+    }
+
+    public void addReview(User u, Review r)
+    {
+        this.reviews.put(u, r);
+    }
 
 }
